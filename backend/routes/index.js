@@ -9,6 +9,9 @@ const {
 const { auth } = require('../middlewares/auth');
 const { error } = require('../middlewares/errors');
 const { NotFoundError } = require('../utils/constants');
+const { requestLogger, errorLogger } = require('../middlewares/logger');
+
+app.use(requestLogger);
 
 router.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -33,6 +36,8 @@ router.use(auth);
 
 router.use('/users', userRouter);
 router.use('/cards', cardRouter);
+
+app.use(errorLogger);
 
 router.use((req, res, next) => {
   next(new NotFoundError('Нет такого адреса'))
