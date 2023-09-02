@@ -1,0 +1,7 @@
+.header__block-user{
+  background-color: #000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+}

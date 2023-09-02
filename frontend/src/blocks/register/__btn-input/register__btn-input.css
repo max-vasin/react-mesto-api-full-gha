@@ -1,0 +1,12 @@
+.register__btn-input{
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 1.5s;
+}
+
+.register__btn-input:hover{
+  opacity: 0.6;
+
+}
