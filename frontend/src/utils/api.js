@@ -22,7 +22,7 @@ class Api{
         method: 'PATCH',
         //headers: this._headers,
         headers: {
-          authorization: '964fdb52-1202-4ec7-a0d2-a00430190f53',
+          authorization: ' b7798525-3f5b-46f7-bffb-bb7cea590922',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -122,7 +122,7 @@ class Api{
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-65',
   headers: {
-    authorization: '964fdb52-1202-4ec7-a0d2-a00430190f53',
+    authorization: ' b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
   }
 });
