@@ -22,7 +22,7 @@ class Api{
         method: 'PATCH',
         //headers: this._headers,
         headers: {
-          authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
+          // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -120,9 +120,10 @@ class Api{
 
 /*----------Создание экземпляра класса Api --------*/
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+  // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+  baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
   headers: {
-    authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
+    // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
   }
 });

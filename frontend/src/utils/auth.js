@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://auth.nomoreparties.co.';
+// export const BASE_URL = 'https://auth.nomoreparties.co.';
+export const BASE_URL = 'https://alexmah15backend.nomoredomainsicu.ru';
 
 export const registers = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
