@@ -7,10 +7,11 @@ class Api{
   }
 
   //информация о пользователе на сервере
-  async getInfoUser(){  
+  async getInfoUser(){
     const user = await fetch(`${this._options.baseUrl}/users/me`, {
       headers: {
-        authorization: this._authorization
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
       }
     })
     return this._checkResponse(user);
@@ -50,7 +51,8 @@ class Api{
   async getInitialCards() {
     const intialCards = await fetch(`${this._options.baseUrl}/cards`, {
       headers: {
-        authorization: this._authorization
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
       }
     })
       return this._checkResponse(intialCards);        
@@ -121,10 +123,10 @@ class Api{
 /*----------Создание экземпляра класса Api --------*/
 const api = new Api({
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
-  baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
-  //baseUrl: 'http://localhost:3000',
+  // baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
+  baseUrl: 'http://localhost:3001',
   headers: {
-    // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
+    authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
   }
 });
