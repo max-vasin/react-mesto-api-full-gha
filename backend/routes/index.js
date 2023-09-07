@@ -10,14 +10,14 @@ const { auth } = require('../middlewares/auth');
 const { error } = require('../middlewares/errors');
 const { NotFoundError } = require('../utils/constants');
 const { requestLogger, errorLogger } = require('../middlewares/logger');
-/*----------CORS------------*/
-const cors = require('cors');
-/*--------------------------*/
+// /*----------CORS------------*/
+// const cors = require('cors');
+// /*--------------------------*/
 router.use(requestLogger);
 
-/*----------CORS------------*/
-router.use(cors());
-/*--------------------------*/
+// /*----------CORS------------*/
+// router.use(cors());
+// /*--------------------------*/
 
 router.post('/signup', celebrate({
   body: Joi.object().keys({
