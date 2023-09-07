@@ -122,6 +122,7 @@ class Api{
 const api = new Api({
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
   baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
+  //baseUrl: 'http://localhost:3001',
   headers: {
     // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
