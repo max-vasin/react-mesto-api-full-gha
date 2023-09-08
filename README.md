@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.14.88
+IP 51.250.14.88
 
-Frontend https://alexmah15frontend.nomoredomainsicu.ru
+Frontend http://alexmah15frontend.nomoredomainsicu.ru
 
-Backend https://alexmah15backend.nomoredomainsicu.ru
+Backend http://alexmah15backend.nomoredomainsicu.ru
