@@ -24,6 +24,7 @@ class Api{
         //headers: this._headers,
         headers: {
           // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
+          authorization: this._authorization,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -49,6 +50,8 @@ class Api{
 
   //информация о имеющихся карточках на сервере
   async getInitialCards() {
+    console.log('this._authorization', this._authorization)
+    console.log('this._options.headers.authorization', this._options.headers.authorization)
     const intialCards = await fetch(`${this._options.baseUrl}/cards`, {
       headers: {
         authorization: this._authorization,
@@ -126,7 +129,8 @@ const api = new Api({
   // baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
   baseUrl: 'http://localhost:3001',
   headers: {
-    authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
+    'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+    //authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
   }
 });

@@ -9,7 +9,7 @@ export const registers = (email, password) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
+      body: JSON.stringify({
       email, password
     })
   })
@@ -25,16 +25,18 @@ export const authorize = (email, password) => {
     },
     body: JSON.stringify({ email, password })
   })
-    .then(res => getResponseData(res));
+    .then(res => getResponseData(res))
 }
 
-export const checkToken = (token) => {
+export const checkToken = (jwt) => {
+  console.log('t', jwt, `${localStorage.getItem('jwt')}`);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      "Authorization" : `Bearer ${token}`,
+      'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+      //"Authorization" : `Bearer ${token}`,
     },
   })
     .then(res => getResponseData(res));

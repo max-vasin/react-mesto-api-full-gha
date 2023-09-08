@@ -21,8 +21,8 @@ const auth = (req, res, next) => {
     /*--------.env---------*/
     const { NODE_ENV, JWT_SECRET } = process.env;
 
-    const token = JWT.sign(
-      { _id: user._id },
+    payload = JWT.verify(
+      token,
       NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret'
     );
     /*---------------------*/

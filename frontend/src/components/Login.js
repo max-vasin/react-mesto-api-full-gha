@@ -10,8 +10,9 @@ function Login({ handelLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    auth.authorize(email, password).then((data) => {
-      localStorage.setItem("jwt", data.token)
+    auth.authorize(email, password).then((jwt) => {
+      console.log('data', jwt);
+      localStorage.setItem("jwt", jwt)
       handelLogin(email);
       navigate("/main");
     }).catch((err) => console.error(err))

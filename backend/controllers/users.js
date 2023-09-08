@@ -107,21 +107,20 @@ const login = async (req, res, next) => {
       return;
     }
 
-
     // const payload = { _id: user._id };
     // const token = JWT.sign(payload, 'some-secret-key', { expiresIn: '7d' });
-    /*--------.env---------*/
+    // /*--------.env---------*/
     const { NODE_ENV, JWT_SECRET } = process.env;
 
     const token = JWT.sign(
       { _id: user._id },
-      NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret'
+      NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+      { expiresIn: '7d' }
     );
     /*---------------------*/
 
-
-    res.cookie('JWT', token);
-    res.status(200).json('Вы авторизовались');
+    //res.cookie('JWT', token);
+    res.status(200).json(token);
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new BadRequestError('Введены некорректные данные'));
