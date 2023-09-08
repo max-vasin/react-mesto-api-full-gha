@@ -11,7 +11,6 @@ function Login({ handelLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     auth.authorize(email, password).then((jwt) => {
-      console.log('data', jwt);
       localStorage.setItem("jwt", jwt)
       handelLogin(email);
       navigate("/main");

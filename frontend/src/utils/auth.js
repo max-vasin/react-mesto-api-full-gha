@@ -1,5 +1,5 @@
 // export const BASE_URL = 'https://auth.nomoreparties.co.';
-// export const BASE_URL = 'http://alexmah15backend.nomoredomainsicu.ru'; 
+// export const BASE_URL = 'https://alexmah15backend.nomoredomainsicu.ru'; 
 export const BASE_URL = 'http://localhost:3001';
 
 export const registers = (email, password) => {
@@ -28,15 +28,14 @@ export const authorize = (email, password) => {
     .then(res => getResponseData(res))
 }
 
-export const checkToken = (jwt) => {
-  console.log('t', jwt, `${localStorage.getItem('jwt')}`);
+export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'authorization': `Bearer ${localStorage.getItem('jwt')}`,
-      //"Authorization" : `Bearer ${token}`,
+      //'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+      "Authorization" : `Bearer ${token}`,
     },
   })
     .then(res => getResponseData(res));

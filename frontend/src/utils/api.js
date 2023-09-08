@@ -7,10 +7,11 @@ class Api{
   }
 
   //информация о пользователе на сервере
-  async getInfoUser(){
+  async getInfoUser(){    
     const user = await fetch(`${this._options.baseUrl}/users/me`, {
       headers: {
-        authorization: this._authorization,
+        //authorization: this._authorization,
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'
       }
     })
@@ -24,7 +25,8 @@ class Api{
         //headers: this._headers,
         headers: {
           // authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
-          authorization: this._authorization,
+          // authorization: this._authorization,
+          'authorization': `Bearer ${localStorage.getItem('jwt')}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -39,7 +41,11 @@ class Api{
   async editInfoAvatar(avatarLink){  
     const avatar = await fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        // this._headers
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         avatar: avatarLink.avatar
       })
@@ -49,12 +55,11 @@ class Api{
 
 
   //информация о имеющихся карточках на сервере
-  async getInitialCards() {
-    console.log('this._authorization', this._authorization)
-    console.log('this._options.headers.authorization', this._options.headers.authorization)
+  async getInitialCards() {    
     const intialCards = await fetch(`${this._options.baseUrl}/cards`, {
       headers: {
-        authorization: this._authorization,
+        //authorization: this._authorization,
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'
       }
     })
@@ -66,7 +71,11 @@ class Api{
   async getAddNewCard(name, link) {
     const infoNewCard = await fetch(`${this._options.baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        // this._headers
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         name: name,
         link: link
@@ -80,7 +89,9 @@ class Api{
     const delCard = await fetch(`${this._options.baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: {
-        authorization: this._authorization,
+        // authorization: this._authorization,
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
       },
     })
     return this._checkResponse(delCard);
@@ -91,7 +102,9 @@ class Api{
     const putLikeCard = await fetch(`${this._options.baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
       headers: {
-        authorization: this._authorization,
+        // authorization: this._authorization,
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
       },
     })
     return this._checkResponse(putLikeCard);
@@ -102,7 +115,9 @@ class Api{
     const deleteLikeCard = await fetch(`${this._options.baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: {
-        authorization: this._authorization,
+        // authorization: this._authorization,
+        'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
       },
     })
     return this._checkResponse(deleteLikeCard);
@@ -126,10 +141,10 @@ class Api{
 /*----------Создание экземпляра класса Api --------*/
 const api = new Api({
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
-  // baseUrl: 'http://alexmah15backend.nomoredomainsicu.ru',
+  // baseUrl: 'https://alexmah15backend.nomoredomainsicu.ru',
   baseUrl: 'http://localhost:3001',
   headers: {
-    'authorization': `Bearer ${localStorage.getItem('jwt')}`,
+    // 'authorization': `Bearer ${localStorage.getItem('jwt')}`,
     //authorization: 'b7798525-3f5b-46f7-bffb-bb7cea590922',
     'Content-Type': 'application/json'
   }

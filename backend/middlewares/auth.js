@@ -6,14 +6,19 @@ require('dotenv').config();
 /*---------------------*/
 
 const auth = (req, res, next) => {
-  const tokenKey = req.headers.cookie;
+  //const tokenKey = req.headers.cookie;
+  const { authorization } = req.headers;
 
-  if (!tokenKey) {
+ if (!authorization || !authorization.startsWith('Bearer ')) {
     next(new UnauthorizedError('Необходима авторизация'));
     return;
   }
-
-  const token = tokenKey.slice(4);
+  // if (!tokenKey) {
+  //   next(new UnauthorizedError('Необходима авторизация'));
+  //   return;
+  // }
+  // const token = tokenKey.slice(4);
+  const token = authorization.replace('Bearer ', '');
 
   let payload;
   try {
