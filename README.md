@@ -11,6 +11,6 @@
 
 IP 51.250.14.88
 
-Frontend http://alexmah15frontend.nomoredomainsicu.ru
+Frontend https://alexmah15frontend.nomoredomainsicu.ru
 
-Backend http://alexmah15backend.nomoredomainsicu.ru
+Backend https://alexmah15backend.nomoredomainsicu.ru
