@@ -9,8 +9,8 @@ const auth = (req, res, next) => {
 
   const { authorization } = req.headers;
 
- if (!authorization || !authorization.startsWith('Bearer ')) {
-    next(new UnauthorizedError('Нет заголовка или херовый'));
+  if (!authorization || !authorization.startsWith('Bearer ')) {
+    next(new UnauthorizedError('Нет заголовка или херовый: ' + authorization));
     return;
   }
 
