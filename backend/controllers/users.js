@@ -108,7 +108,7 @@ const login = async (req, res, next) => {
     }
 
     // /*--------.env---------*/
-    const { NODE_ENV, JWT_SECRET } = process.env;
+    const { NODE_ENV, JWT_SECRET = "29af84f0aad493a9297699fb973aedbeb0f73de1d0d5e7c6d6a290550cf56c10" } = process.env;
 
     const token = JWT.sign(
       { _id: user._id },
