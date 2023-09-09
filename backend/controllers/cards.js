@@ -26,6 +26,7 @@ function deleteCard(req, res, next) {
   const userId = req.user._id;
   Card.findById(id)
     .then((card) => {
+      console.log("card", card)
       if (!card) {
         next(new NotFoundError('Нет такого id'));
         return;

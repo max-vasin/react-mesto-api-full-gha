@@ -19,6 +19,14 @@ router.use(requestLogger);
 /*----------CORS------------*/
 router.use(cors());
 /*--------------------------*/
+/*------------краш-тест-----------*/
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
+/*--------------------------------*/
 
 router.post('/signup', celebrate({
   body: Joi.object().keys({
