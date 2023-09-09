@@ -117,7 +117,7 @@ const login = async (req, res, next) => {
     );
     /*---------------------*/
 
-    res.status(200).json(token);
+    res.status(200).json({ token });
   } catch (err) {
     if (err.name === 'ValidationError') {
       next(new BadRequestError('Введены некорректные данные'));
