@@ -54,7 +54,7 @@ function likeCard(req, res, next) {
       next(new NotFoundError('Нет такого id'));
       return;
     }
-    res.status(200).send({ message: 'Лайк поставлен успешно' });
+    res.status(200).send(card);
   })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -75,7 +75,7 @@ function dislikeCard(req, res, next) {
       next(new NotFoundError('Нет такого id'));
       return;
     }
-    res.status(200).send({ message: 'Лайк снаят успешно' });
+    res.status(200).send(user);
   })
     .catch((err) => {
       if (err.name === 'CastError') {
