@@ -10,7 +10,7 @@ const auth = (req, res, next) => {
   const { authorization } = req.headers;
 
  if (!authorization || !authorization.startsWith('Bearer ')) {
-    next(new UnauthorizedError('Необходима авторизация'));
+    next(new UnauthorizedError('Нет заголовка или херовый'));
     return;
   }
 
@@ -25,7 +25,7 @@ const auth = (req, res, next) => {
     );
     /*---------------------*/
   } catch (err) {
-      next(new UnauthorizedError('Необходима авторизация'));
+      next(new UnauthorizedError('Паленый jwt'));
       return;
   }
 
