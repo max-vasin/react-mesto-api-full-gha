@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
+const JWT = require('jsonwebtoken');
 /*--------.env---------*/
 require('dotenv').config();
 
 /*---------------------*/
-const JWT = require('jsonwebtoken');
 const User = require('../models/user');
 const { BadRequestError, UnauthorizedError, NotFoundError, ConflictError } = require('../utils/constants');
 
@@ -107,8 +107,6 @@ const login = async (req, res, next) => {
       return;
     }
 
-    // const payload = { _id: user._id };
-    // const token = JWT.sign(payload, 'some-secret-key', { expiresIn: '7d' });
     // /*--------.env---------*/
     const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -119,7 +117,6 @@ const login = async (req, res, next) => {
     );
     /*---------------------*/
 
-    //res.cookie('JWT', token);
     res.status(200).json(token);
   } catch (err) {
     if (err.name === 'ValidationError') {

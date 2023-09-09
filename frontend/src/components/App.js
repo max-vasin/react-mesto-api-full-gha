@@ -34,7 +34,7 @@ function App() {
       if(!data) {
         return
       }
-      setEmail(data.data.email);
+      setEmail(data.email);
       setLoggedIn(true);
       navigate(location.pathname);
     })
