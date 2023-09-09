@@ -116,7 +116,7 @@ const login = async (req, res, next) => {
       { expiresIn: '7d' }
     );
     /*---------------------*/
-    res.cookie('JWT', token);
+
     res.status(200).json(token);
   } catch (err) {
     if (err.name === 'ValidationError') {
